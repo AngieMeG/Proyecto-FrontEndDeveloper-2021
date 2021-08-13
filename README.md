@@ -14,11 +14,13 @@ Para clonar el respositorio se deben seguir los siguientes pasos:
     $ git clone https://github.com/AngieMeG/Proyecto-FrontEndDeveloper-2021
     ```
 ### Ejecutando 🔧
-Para poder correr la aplicación de manera correcta se debe ejecutar el archivo ***index.html*** encontrado en la carpeta generada del proyecto.
-
+Para poder correr la aplicación de manera correcta se debe ejecutar el archivo ***index.html*** encontrado en la carpeta generada del proyecto.  
+![](img/Ejecutando.PNG)  
+![](img/Ejecutando2.PNG)  
 
 ## Ejecutando las pruebas ⚙️
 Para la ejecución de las pruebas de manera satisfactoria es necesario ejecutar el archivo ***SpecRunner.html*** localizado en la carpeta ***js*** del proyecto
+![](img/Pruebas.PNG)  
 
 # Retrospectiva
 * Se uso **HTML** para darle una estructura a la pagina web, este es el lienzo sobre el que el CSS y JS van a trabajar
