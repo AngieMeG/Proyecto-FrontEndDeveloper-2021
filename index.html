@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Tip Calculator</title>
+
+        <!-- Normalize interpretacion diferentes navegadores-->
+        <link rel="preload" href="css/normalize.css" as="style">
+        <link rel="stylesheet" href="css/normalize.css">
+
+        <!-- Librerias -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Space+Mono&display=swap" rel="stylesheet"> 
+
+        <!-- Mejor performance -->
+        <link rel="preload" href="css/styles.css" as="style">
+
+        <!-- Carga hoja de estilos css -->
+        <link href="css/styles.css" rel="stylesheet">
+    </head>
+    <body>
+        <!-- Separador carta base cyan claro-->
+        <div id="cyan" class="container">
+            <div class="header center">
+                <img src="img/logo.svg" alt="logo"/>
+            </div>
+            <!-- Separador carta blanca-->
+            <div id="white" class="container round center">
+                <form data-bind="with: info" class="content">
+                    <div class="holder">
+                        <label><strong>bill</strong></label><br>
+                        <input data-bind="textInput: bill, event: {input: $parent.updateBill, input: $parent.calculateResults}" type="text" id="fbill" name="fbill" pattern="^([0-9]+\.?[0-9]*|\.[0-9]+)$" class="round text dollar" placeholder="0.00"><br>
+                    </div>
+                    <div class="holder">
+                        <label><strong>select tip %</strong></label><br>
+                        <div id="options">
+                            <input data-bind="event: {click: $parent.updateTip}" type="button" id="5p" class="button round" value="5%">
+                            <input data-bind="event: {click: $parent.updateTip}" type="button" id="10p" class="button round" value="10%">
+                            <input data-bind="event: {click: $parent.updateTip}" type="button" id="15p" class="button round" value="15%">
+                            <input data-bind="event: {click: $parent.updateTip}" type="button" id="25p" class="button round" value="25%">
+                            <input data-bind="event: {click: $parent.updateTip}" type="button" id="50p" class="button round" value="50%">
+                            <input data-bind="textInput: custom, event: {click: $parent.updateTip, input: $parent.updateCustom}" type='text' id="custom" class="custom round"pattern="^([0-9]+\.?[0-9]*|\.[0-9]+)[%]?$" placeholder="Custom">
+                        </div>
+                    </div>
+                    <div class="holder">
+                        <label><strong>number of people</strong></label><br>
+                        <input data-bind="textInput: numPeople, event: {input: $parent.updatePeople, input: $parent.calculateResults}" type="text" id="fpeople" name="fpeople" pattern="^[0-9]*$" class="round text people" placeholder="1"><br>
+                    </div>
+                </form>
+                <!-- Separador carta cyan oscuro -->
+                <div data-bind="with: result" id="dark" class="container round center">
+                    <div class="row">
+                        <h2>tip amount <span><br>/person</span></h2>
+                        <div data-bind="text: tipAmount" id="tipAmount" class="tip result">$0.00</div>
+                    </div>
+                    <div class="row">
+                        <h2>total <span><br>/person</span></h2>
+                        <div data-bind="text: total" id="total" class="total result">$0.00</div>
+                    </div>
+                    <div class="row">
+                        <button data-bind="event: {click: $parent.basicValues}" id="reset" class="button round">Reset</button>
+                    </div>
+                </div>
+            </div>
+            <div class="restriction"></div>
+        </div>
+
+        <script src="js/lib/knockout-3.2.0.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+</html>
